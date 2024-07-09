@@ -76,4 +76,4 @@ This weather application provides weather information tailored for different use
 - **Frontend**: React.js
 - **API**: OpenWeatherMap API (or any other weather API)
 
-  ![Weather App Screenshot](/sketch design.jpg)
+![Weather App Screenshot](sketch design.jpg)

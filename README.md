@@ -2,7 +2,7 @@
 
 ## Overview
 
-This application provides weather information tailored for different user categories: farmers, event planners, and travelers. Each category has a dedicated dashboard that displays current weather details, a 7-day weather forecast, and various weather-related statistics.
+This weather application provides weather information tailored for different user categories: farmers, event planners, and travelers. Each category has a dedicated dashboard that displays current weather details, a 7-day weather forecast, and various weather-related statistics.
 
 ## Features
 
@@ -29,8 +29,8 @@ This application provides weather information tailored for different user catego
 
 ### Traveler Dashboard
 - **Custom Dashboard**: Activated when the "Traveler" tab is clicked.
-- **Two Search Boxes**: Allows users to enter a 'from' and 'to' locations.
-- **Weather Details**: Displays weather details for the 'to' location.
+- **Two Search Boxes**: Allows users to enter a 'from' and 'to' destination.
+- **Weather Details**: Displays weather details for the 'to' destination.
 
 ## Usage
 
@@ -63,15 +63,23 @@ This application provides weather information tailored for different user catego
     ```sh
     cd weather-application
     ```
-3. Install the dependencies:
+3. Install dependencies:
     ```sh
-    npm install
+    npm install react-router-dom @material-ui/core styled-components @mui/material @emotion/react @emotion/styled axios
     ```
 4. Start the application:
     ```sh
-    npm run dev
+    npm start
     ```
 
 ## Technologies Used
 - **Frontend**: React.js
 - **API**: OpenWeatherMap API (or any other weather API)
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.

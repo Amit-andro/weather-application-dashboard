@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Container, Grid, Box } from "@mui/material";
 import WeatherOverview from "./WeatherOverview";
-import WeatherCard from "./WeatherCard";
 import WeeklyWeatherForecast from "./WeeklyWeatherForecast";
 import WeatherDetail from "./WeatherDetail";
 import SearchBox from "./SearchBox/SearchBox";
 import DescriptionCard from "./DescriptionCard/DescriptionCard"; 
 import Divider from "@mui/material/Divider";
-import { styled } from "@mui/system";
 import axios from "axios";
 
 const WeatherDashboard = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Typography, Box, Grid } from '@mui/material';
+import { Paper, Typography, Grid } from '@mui/material';
 
 const WeatherCard = ({ day, temp, icon, date }) => {
   return (

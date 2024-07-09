@@ -1,0 +1,71 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color:#121212;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+.css-dscrwe-MuiGrid-root {
+  margin-left: 30px !important;
+}
+
+/* .css-ahj2mt-MuiTypography-root{
+  font-size: 13px !important;
+} */
+.css-1gbvhdu-MuiPaper-root{
+  width: 200px;
+  height: 176px;
+  border-radius: 15px !important;
+}
+
+.leftSider{
+  width: 100px !important;
+  height: 106px !important;
+}
+
+.css-17mv8ej-MuiPaper-root{
+  height: 140px;
+}
+
+@media (min-width: 1536px) {
+  .css-1xd74lj-MuiGrid-root {
+      max-width: 100% !important;
+      /* font-size: 10px !important; */
+  }
+}
+
+.css-5lbw0b-MuiTypography-root{
+  font-size: 1.2rem !important;
+}
+
+.sevendayReport{
+  margin-left: -24px !important;
+}
+
+.searchIcon{
+  padding-left: 0 !important;
+}
+
+.descriptionCard{
+  margin-top: 21px !important;
+    margin-left: 12px !important;
+    width: 235px !important;
+    height: 108px !important;
+    border-radius: 15px !important;
+}

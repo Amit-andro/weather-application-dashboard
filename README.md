@@ -2,7 +2,7 @@
 
 ## Overview
 
-This weather application provides weather information tailored for different user categories: farmers, event planners, and travelers. Each category has a dedicated dashboard that displays current weather details, a 7-day weather forecast, and various weather-related statistics.
+This application provides weather information tailored for different user categories: farmers, event planners, and travelers. Each category has a dedicated dashboard that displays current weather details, a 7-day weather forecast, and various weather-related statistics.
 
 ## Features
 
@@ -29,8 +29,8 @@ This weather application provides weather information tailored for different use
 
 ### Traveler Dashboard
 - **Custom Dashboard**: Activated when the "Traveler" tab is clicked.
-- **Two Search Boxes**: Allows users to enter a 'from' and 'to' destination.
-- **Weather Details**: Displays weather details for the 'to' destination.
+- **Two Search Boxes**: Allows users to enter a 'from' and 'to' locations.
+- **Weather Details**: Displays weather details for the 'to' location.
 
 ## Usage
 
@@ -75,11 +75,3 @@ This weather application provides weather information tailored for different use
 ## Technologies Used
 - **Frontend**: React.js
 - **API**: OpenWeatherMap API (or any other weather API)
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 
+// Styled component for the navbar container
 const NavbarContainer = styled.nav`
   background-color: #1e1e1e;
   color: white;
@@ -17,11 +18,13 @@ const NavbarContainer = styled.nav`
   }
 `;
 
+// Styled component for the branding/title
 const Branding = styled.div`
   font-size: 1.2rem;
   font-weight: bold;
 `;
 
+// Styled component for the navigation links container
 const NavLinks = styled.div`
   display: flex;
   gap: 20px;
@@ -31,6 +34,7 @@ const NavLinks = styled.div`
   }
 `;
 
+// Styled component for each navigation link
 const NavLink = styled(Link)`
   color: white;
   text-decoration: none;
@@ -55,13 +59,15 @@ const NavLink = styled(Link)`
   }
 `;
 
+// Navbar component definition
 const Navbar = () => {
-  const location = useLocation();
+  const location = useLocation(); // Hook from react-router-dom to get current location
 
   return (
     <NavbarContainer>
-      <Branding>Weather</Branding>
+      <Branding>Weather</Branding> {/* Branding/title of the navbar */}
       <NavLinks>
+        {/* Navigation links with active state based on current pathname */}
         <NavLink to="/farmer" active={location.pathname === '/farmer'}>Farmer</NavLink>
         <NavLink to="/event-planner" active={location.pathname === '/event-planner'}>Event Planners</NavLink>
         <NavLink to="/travelers" active={location.pathname === '/travelers'}>Travelers</NavLink>

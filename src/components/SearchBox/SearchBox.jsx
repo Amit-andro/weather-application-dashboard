@@ -3,6 +3,7 @@ import { Grid, Box } from "@mui/material";
 import PageviewIcon from "@mui/icons-material/Pageview";
 import { styled } from "@mui/system";
 
+// Styled component for the icon container
 const IconBox = styled(Box)({
   display: "flex",
   alignItems: "center",
@@ -11,9 +12,11 @@ const IconBox = styled(Box)({
   fontSize: "2rem",
 });
 
+// SearchBox component
 const SearchBox = ({ destination, onChange, onSearch }) => {
   return (
     <Grid container alignItems="center" spacing={1} sx={{ marginLeft: "5px" }}>
+      {/* Input field for destination */}
       <Grid item>
         <input
           type="text"
@@ -29,6 +32,7 @@ const SearchBox = ({ destination, onChange, onSearch }) => {
           }}
         />
       </Grid>
+      {/* Button for search */}
       <Grid item className="searchIcon">
         <button
           onClick={onSearch}
@@ -36,9 +40,10 @@ const SearchBox = ({ destination, onChange, onSearch }) => {
             background: "none",
             border: "none",
             cursor: "pointer",
-            marginTop: "13px",
+            marginTop: "13px",  // Adjusted margin for alignment
           }}
         >
+          {/* IconBox for the PageviewIcon */}
           <IconBox>
             <PageviewIcon sx={{ fontSize: "35px" }} />
           </IconBox>

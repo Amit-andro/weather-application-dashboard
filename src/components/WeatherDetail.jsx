@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import WindIcon from "@mui/icons-material/Air";
@@ -12,9 +11,9 @@ import FeelsLikeIcon from "@mui/icons-material/Thermostat";
 import CompressIcon from '@mui/icons-material/Compress';
 import SolarPowerIcon from '@mui/icons-material/SolarPower';
 
+// Styled components for Dashboard layout and styling
 const DashboardContainer = styled(Box)({
   backgroundColor: "#121212",
-  // minHeight: '100vh',
   padding: "2rem",
   color: "#ffffff",
 });
@@ -37,131 +36,91 @@ const IconBox = styled(Box)({
   fontSize: "2rem",
 });
 
+// Reusable component for dashboard items
+const DashboardDetailItem = ({ title, icon, value, additionalValue }) => (
+  <Grid item xs={12} sm={6} md={3}>
+    <DashboardItem>
+      <Typography>{title}</Typography>
+      <IconBox>{icon}</IconBox>
+      <div style={{ display: "flex", justifyContent: "space-between", gap: "60px" }}>
+        <div>
+          <Typography>{value}</Typography>
+        </div>
+        {additionalValue && (
+          <div>
+            <Typography>{additionalValue}</Typography>
+          </div>
+        )}
+      </div>
+    </DashboardItem>
+  </Grid>
+);
+
+// Main component to display weather details
 const WeatherDetail = (weather) => {
+  const currentConditions = weather?.weather?.currentConditions;
+
   return (
     <DashboardContainer>
       <Typography variant="h4" gutterBottom>
         Today's overview
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={2} md={3}>
-          <DashboardItem>
-            <Typography>Wind Status</Typography>
-            <IconBox>
-              <WindIcon sx={{ fontSize: "80px" }} />
-            </IconBox>
-            <div
-              className="wind"
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "100px",
-              }}
-            >
-              <div>
-                <Typography>{weather?.weather?.currentConditions?.windspeed} km/h</Typography>
-              </div>
-              <div>
-                <Typography>{weather?.weather?.currentConditions?.winddir}</Typography>
-              </div>
-            </div>
-          </DashboardItem>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardItem>
-            <Typography>UV Index</Typography>
-            <IconBox>
-              <UvIcon sx={{ fontSize: "70px" }} />
-            </IconBox>
-            <div
-              className="wind"
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "60px",
-              }}
-            >
-              <div>
-                <Typography>{weather?.weather?.currentConditions?.uvindex} uv</Typography>
-              </div>
-            </div>
-          </DashboardItem>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardItem>
-            <Typography>Sunrise and Sunset</Typography>
-
-            <IconBox>
+        {/* Wind Status */}
+        <DashboardDetailItem
+          title="Wind Status"
+          icon={<WindIcon sx={{ fontSize: "80px" }} />}
+          value={`${currentConditions?.windspeed} km/h`}
+          additionalValue={currentConditions?.winddir}
+        />
+        {/* UV Index */}
+        <DashboardDetailItem
+          title="UV Index"
+          icon={<UvIcon sx={{ fontSize: "70px" }} />}
+          value={`${currentConditions?.uvindex} uv`}
+        />
+        {/* Sunrise and Sunset */}
+        <DashboardDetailItem
+          title="Sunrise and Sunset"
+          icon={
+            <Box>
               <SunriseIcon sx={{ fontSize: "60px" }} />
               <SunsetIcon sx={{ fontSize: "60px" }} />
-            </IconBox>
-            <div
-              className="wind"
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: "60px",
-              }}
-            >
-              <div>
-                <Typography>Sunrise: {weather?.weather?.currentConditions?.sunrise} AM</Typography>
-              </div>
-              <div>
-                <Typography>Sunset: {weather?.weather?.currentConditions?.sunset} PM</Typography>
-              </div>
-            </div>
-          </DashboardItem>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardItem>
-            <Typography>Humidity</Typography>
-
-            <IconBox>
-              <HumidityIcon sx={{fontSize:'80px'}} />
-            </IconBox>
-            <Typography>{weather?.weather?.currentConditions?.humidity}</Typography>
-          </DashboardItem>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardItem>
-            <Typography>Visibility</Typography>
-
-            <IconBox>
-              <VisibilityIcon sx={{fontSize:"60px"}} />
-            </IconBox>
-            <Typography>{weather?.weather?.currentConditions?.visibility}</Typography>
-          </DashboardItem>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardItem>
-            <Typography>Feels like</Typography>
-            <IconBox>
-              <FeelsLikeIcon sx={{fontSize:"80px"}} />
-            </IconBox>
-            <Typography>{weather?.weather?.currentConditions?.feelslike}</Typography>
-          </DashboardItem>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardItem>
-            <Typography>Pressure</Typography>
-
-            <IconBox>
-              <CompressIcon sx={{fontSize:"80px"}} />
-            </IconBox>
-            <Typography>{weather?.weather?.currentConditions?.pressure}</Typography>
-            {/* <Typography>Humidity is making it feel hotter</Typography> */}
-          </DashboardItem>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <DashboardItem>
-            <Typography>Solar Energy</Typography>
-
-            <IconBox>
-              <SolarPowerIcon sx={{fontSize:"75px"}} />
-            </IconBox>
-            <Typography>{weather?.weather?.currentConditions?.solarenergy}</Typography>
-          </DashboardItem>
-        </Grid>
+            </Box>
+          }
+          value={`Sunrise: ${currentConditions?.sunrise} AM`}
+          additionalValue={`Sunset: ${currentConditions?.sunset} PM`}
+        />
+        {/* Humidity */}
+        <DashboardDetailItem
+          title="Humidity"
+          icon={<HumidityIcon sx={{ fontSize: '80px' }} />}
+          value={currentConditions?.humidity}
+        />
+        {/* Visibility */}
+        <DashboardDetailItem
+          title="Visibility"
+          icon={<VisibilityIcon sx={{ fontSize: "60px" }} />}
+          value={currentConditions?.visibility}
+        />
+        {/* Feels like */}
+        <DashboardDetailItem
+          title="Feels like"
+          icon={<FeelsLikeIcon sx={{ fontSize: "80px" }} />}
+          value={currentConditions?.feelslike}
+        />
+        {/* Pressure */}
+        <DashboardDetailItem
+          title="Pressure"
+          icon={<CompressIcon sx={{ fontSize: "80px" }} />}
+          value={currentConditions?.pressure}
+        />
+        {/* Solar Energy */}
+        <DashboardDetailItem
+          title="Solar Energy"
+          icon={<SolarPowerIcon sx={{ fontSize: "75px" }} />}
+          value={currentConditions?.solarenergy}
+        />
       </Grid>
     </DashboardContainer>
   );

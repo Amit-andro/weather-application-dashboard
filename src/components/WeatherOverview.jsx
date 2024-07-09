@@ -15,6 +15,7 @@ import hailIcon from "../assets/hail_178341.png";
 import thunderstormIcon from "../assets/storm_1946170.png";
 import tornadoIcon from "../assets/tornado_1779931.png";
 
+// Icon mappings based on weather conditions
 const iconMapping = {
   rain: rainIcon,
   clear: clearIcon,
@@ -32,9 +33,12 @@ const iconMapping = {
   tornado: tornadoIcon,
 };
 
+// Function to convert Fahrenheit to Celsius
 const convertFToC = (tempF) => ((tempF - 32) * 5) / 9;
 
+// WeatherOverview component
 const WeatherOverview = (weather) => {
+  // Destructuring props to extract weather data
   const icon = weather?.weather?.currentConditions?.icon;
   const iconPath = iconMapping[icon];
   const tempF = weather?.weather?.currentConditions?.temp;
@@ -54,12 +58,14 @@ const WeatherOverview = (weather) => {
         justifyContent="center"
         style={{ height: "100%" }}
       >
+        {/* Weather location information */}
         <Grid item>
           <Typography variant="h6">{weather?.weather?.address}</Typography>
           <Typography variant="subtitle1">
             {weather?.weather?.resolvedAddress}
           </Typography>
         </Grid>
+        {/* Weather conditions and temperature */}
         <Grid item>
           <Box
             textAlign="left"
@@ -67,15 +73,19 @@ const WeatherOverview = (weather) => {
             alignItems="left"
             flexDirection={"column"}
           >
+            {/* Display weather icon */}
             {iconPath && (
               <img
                 src={iconPath}
                 style={{ width: "80px", marginRight: "8px" }}
+                alt="Weather Icon"
               />
             )}
+            {/* Display temperature in Celsius */}
             <Typography variant="h3">
               {tempC ? `${tempC}°C` : "N/A"}
             </Typography>
+            {/* Display current weather conditions */}
             <Box position="absolute" bottom={4} right={6} textAlign="right">
               <Typography sx={{ fontSize: "16px" }} variant="subtitle2">
                 {weather?.weather?.currentConditions?.conditions}

@@ -14,6 +14,7 @@ const Travelers = () => {
   const [fromWeather, setFromWeather] = useState(null);
   const [toWeather, setToWeather] = useState(null);
 
+  // Function to fetch weather data based on destination
   const handleSearch = (destination, setWeatherState) => {
     axios
       .get(
@@ -27,17 +28,20 @@ const Travelers = () => {
       });
   };
 
+  // Function to handle input changes and update destination states
   const handleChange = (e, setDestinationState) => {
     const value = e.target.value;
     const capitalizedValue = value.toUpperCase();
     setDestinationState(capitalizedValue);
   };
 
+  // Initial data fetching on component mount
   useEffect(() => {
     handleSearch(fromDestination, setFromWeather);
     handleSearch(toDestination, setToWeather);
   }, []);
 
+  // Styled component for the search icon box
   const IconBox = styled(Box)({
     display: "flex",
     alignItems: "center",
@@ -53,12 +57,8 @@ const Travelers = () => {
     >
       <Box sx={{ marginTop: "50px" }}>
         <Grid container spacing={3}>
-          <Grid
-            container
-            alignItems="center"
-            spacing={1}
-            sx={{ marginLeft: "5px" }}
-          >
+          {/* Search inputs for fromDestination and toDestination */}
+          <Grid container alignItems="center" spacing={1} sx={{ marginLeft: "5px" }}>
             <Grid sx={{ marginLeft: "20px" }}>
               <Grid item>
                 <input
@@ -91,6 +91,7 @@ const Travelers = () => {
                 />
               </Grid>
             </Grid>
+            {/* Search button with PageviewIcon */}
             <Grid item className="searchIcon">
               <button
                 onClick={() => {
@@ -101,7 +102,6 @@ const Travelers = () => {
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  //   marginTop: "20px",
                 }}
               >
                 <IconBox>
@@ -113,28 +113,25 @@ const Travelers = () => {
         </Grid>
       </Box>
 
+      {/* Weather overview and details layout */}
       <Grid container spacing={3}>
         <Grid>
-          <Grid
-            item
-            xs={12}
-            md={3}
-            sx={{ marginLeft: "10px", marginTop: "15px" }}
-          >
+          <Grid item xs={12} md={3} sx={{ marginLeft: "10px", marginTop: "15px" }}>
+            {/* Weather overview for fromDestination */}
             <WeatherOverview weather={fromWeather} />
           </Grid>
           <Divider sx={{ backgroundColor: "#1e1e1e", height: "0.2px" }} />
           <Grid item xs={12} md={3} sx={{ marginLeft: "10px" }}>
+            {/* Weather overview for toDestination */}
             <WeatherOverview weather={toWeather} />
           </Grid>
         </Grid>
-        <Divider
-          sx={{ backgroundColor: "#1e1e1e", height: "85vh" }}
-          orientation="vertical"
-        />
+        <Divider sx={{ backgroundColor: "#1e1e1e", height: "85vh" }} orientation="vertical" />
         <Grid item xs={12} md={9} sx={{ marginLeft: "45px" }}>
+          {/* Weekly weather forecast for toDestination */}
           <WeeklyWeatherForecast weather={toWeather} />
           <Grid item xs={12}>
+            {/* Detailed weather information for toDestination */}
             <WeatherDetail weather={toWeather} />
           </Grid>
         </Grid>

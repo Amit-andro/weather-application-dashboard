@@ -16,6 +16,7 @@ import hailIcon from "../assets/hail_178341.png";
 import thunderstormIcon from "../assets/storm_1946170.png";
 import tornadoIcon from "../assets/tornado_1779931.png";
 
+// Mapping of weather conditions to corresponding icons
 const iconMapping = {
   rain: rainIcon,
   clear: clearIcon,
@@ -34,19 +35,21 @@ const iconMapping = {
 };
 
 const WeeklyWeatherForecast = ({ weather }) => {
+  // Processing weather data for the weekly forecast
   const weeklyWeather =
     weather?.days?.slice(0, 7)?.map((dayData) => {
-      const celsiusTemp = (((dayData.temp - 32) * 5) / 9).toFixed(1);
+      // Convert Fahrenheit to Celsius and round to one decimal place
+      const celsiusTemp = (((dayData.temp - 32) * 5) / 9).toFixed(1); 
       return {
         day: new Date(dayData.datetime).toLocaleDateString("en-US", {
           weekday: "short",
-        }),
+        }), // Get the short weekday name
         temp: celsiusTemp,
         icon: dayData.icon,
         date: new Date(dayData.datetime).toLocaleDateString("en-US", {
           month: "short",
           day: "numeric",
-        }),
+        }), // Get the short month name and day number
       };
     }) || [];
 
@@ -54,12 +57,13 @@ const WeeklyWeatherForecast = ({ weather }) => {
     <Grid container spacing={2} className="sevendayReport">
       <Grid item xs={12}>
         <Grid container spacing={2} wrap="nowrap">
+          {/* Mapping over the weekly weather data to render WeatherCard components */}
           {weeklyWeather.map((dayData, index) => (
             <Grid item xs={6} md={2} key={index}>
               <WeatherCard
                 day={dayData.day}
                 temp={dayData.temp}
-                icon={iconMapping[dayData.icon]}
+                icon={iconMapping[dayData.icon]} // Get the corresponding icon from the mapping
                 date={dayData.date}
               />
             </Grid>

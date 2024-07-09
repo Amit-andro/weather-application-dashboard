@@ -1,5 +1,8 @@
 # Weather Application
 
+## Application Design
+![Alt Text](https://sprl.in/weatherApp)
+
 ## Overview
 
 This weather application provides weather information tailored for different user categories: farmers, event planners, and travelers. Each category has a dedicated dashboard that displays current weather details, a 7-day weather forecast, and various weather-related statistics.
@@ -75,5 +78,3 @@ This weather application provides weather information tailored for different use
 ## Technologies Used
 - **Frontend**: React.js
 - **API**: OpenWeatherMap API (or any other weather API)
-
-![Weather App Screenshot](sketch design.jpg)

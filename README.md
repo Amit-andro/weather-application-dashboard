@@ -75,11 +75,3 @@ This weather application provides weather information tailored for different use
 ## Technologies Used
 - **Frontend**: React.js
 - **API**: OpenWeatherMap API (or any other weather API)
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.

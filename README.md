@@ -72,7 +72,7 @@ This weather application provides weather information tailored for different use
     ```
 4. Start the application:
     ```sh
-    npm start
+    npm run dev
     ```
 
 ## Technologies Used
